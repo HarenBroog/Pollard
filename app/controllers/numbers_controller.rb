@@ -1,10 +1,29 @@
+require 'rubygems'
+require 'popen4'
+
 class NumbersController < ApplicationController
 
-expose(:number)
+expose(:number, attributes: :number_params)
+
+def create
+  if number.save
+    redirect_to number_path(number)
+  else
+    redirect_to :new
+  end
+end
+
+def new
+end
 
 def show
-  number = POpen4::popen4( 'mpirun hello.rb' ) do |stdout, stderr, stdin|     
- end  
+end
+
+
+private
+
+def number_params
+  params.require(:number).permit(:value, :np, :number_of_tries)
 end
 
 end
