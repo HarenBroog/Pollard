@@ -49,6 +49,9 @@ gem 'kaminari'
 
 
 gem 'ruby-mpi'
+gem 'POpen4'
+gem 'open4'
+gem 'narray'
 
 group :test do
   gem 'simplecov', '~> 0.7.1', require: false

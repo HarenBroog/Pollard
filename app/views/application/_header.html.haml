@@ -1,0 +1,13 @@
+.navbar.navbar-default.navbar-static-top{role: "navigation"}
+  .container
+    .navbar-header
+      = link_to 'Rho Pollard', root_path, class: 'navbar-brand'
+    .p
+      .navbar-collapse.collapse
+        %ul.nav.navbar-nav.navbar-right
+          - if false and current_user.try(:admin?)
+            %li
+              = link_to 'Admin', rails_admin.dashboard_path
+          / %li
+          /   = link_to 'Tasks', root_path
+          
