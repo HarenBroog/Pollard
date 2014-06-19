@@ -10,4 +10,8 @@ class Number
   field :np,      type: Fixnum
   field :number_of_tries, type: Fixnum
   field :console, type: String
+
+  def factor
+    
+  end
 end
