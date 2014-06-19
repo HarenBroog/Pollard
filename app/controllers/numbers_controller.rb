@@ -7,6 +7,7 @@ expose(:number, attributes: :number_params)
 
 def create
   if number.save
+    number.factor
     redirect_to number_path(number)
   else
     redirect_to :new
