@@ -1,6 +1,6 @@
 .col-md-12
-  = simple_form_for(number, html: { class: 'form-horizontal' }) do |f|
+  = simple_form_for( number, html: { class: 'form-horizontal' }) do |f|
     = f.input :value, label: 'Large complex value'
-    = f.input :np, collection: (1..10), label: 'Number of process'
-    = f.input :number_of_tries, collection: (1..100), label: 'Number of tries'
+    / = f.input :np, collection: (1..10), label: 'Number of process'
+    = f.input :number_of_tries, collection: (1..10), label: 'Number of tries'
     .row= f.button :submit, 'Factorize number' 

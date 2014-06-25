@@ -4,9 +4,11 @@
     %title Rho Pollard
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
+    = javascript_include_tag "www.google.com/jsapi", "chartkick"
     = csrf_meta_tags
   %body
     =render 'header'
     .container
-      .row.col-md-12
+      .row.col-md-12.well
         = yield
+      =render 'footer'    

@@ -1,6 +1,28 @@
-.h2 
-  Factorized number
-  %strong= number.value
-  \:
-.p 
-  = number.console
+.panel.well
+  .h2 
+    Factorized number
+    %strong= number.value
+    \:
+  .border{:style => "border-style: solid; border-width: 0.05em;" }
+  %br
+  %p
+    %strong P: 
+    = number.p
+    %strong Q: 
+    = number.q
+%br
+.panel.well
+  %br
+  %table.table-striped.table-bordered.table-condensed
+    %thead
+      %tr
+        %th Try/Np
+        - number.time.first.each do |t|
+          %th= number.time.first.index(t)+2
+    %tbody
+      - number.time.each do |t|
+        %tr
+          %td= number.time.index(t)+1
+          -t.each do |t1|
+            %td= t1
+      

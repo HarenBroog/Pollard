@@ -49,11 +49,12 @@ gem 'kaminari'
 
 
 gem 'ruby-mpi'
-gem 'mpi-ruby', github: 'abedra/mpi-ruby'
+# gem 'mpi-ruby', github: 'abedra/mpi-ruby'
 
 gem 'POpen4'
 gem 'open4'
 gem 'narray'
+gem "chartkick"
 
 group :test do
   gem 'simplecov', '~> 0.7.1', require: false

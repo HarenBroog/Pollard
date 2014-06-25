@@ -8,6 +8,8 @@ expose(:number, attributes: :number_params)
 def create
   if number.save
     number.factor
+    
+    number.save
     redirect_to number_path(number)
   else
     redirect_to :new
@@ -23,8 +25,12 @@ end
 
 private
 
+def factor
+
+end
+
 def number_params
-  params.require(:number).permit(:value, :np, :number_of_tries)
+  params.require(:number).permit(:value, :np, :number_of_tries,:console)
 end
 
 end
