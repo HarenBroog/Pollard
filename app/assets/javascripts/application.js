@@ -12,8 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jsapi
-//= require chartkick
 //= require bootstrap
 //= require_tree .
 
