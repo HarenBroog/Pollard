@@ -74,6 +74,6 @@ production:
       # replica set connection setup.
       # Use environment variables or a config file to keep your
       # credentials safe.
-      uri: 'mongodb://admin:cx2utr7pb@kahana.mongohq.com:10052/Pollard'
+      uri: 'mongodb://admin:cx2utr7pb@kahana.mongohq.com:10094/Pollard'
 
       options:
