@@ -3,16 +3,16 @@
 #include <stdlib.h>
 
 
-long Funkcja(long a, long rank, long liczba, int r)
+long long Funkcja(long long a, long long rank, long long liczba, int r)
 {
 	return (a * a + r + rank) % liczba; 
 }
 
-long GCD(long a, long b)
+long long GCD(long long a, long long b)
 {
 while(b != 0)
 {
-	long t = a;
+	long long t = a;
 	a = b;
 	b = t % b;	
 }
@@ -28,12 +28,12 @@ if(a < 0)
 
 int main(int argc, char** argv) {
 srand(time(NULL));
-int r = rand() % 100;
+int r = rand();
   MPI_Init(NULL, NULL);
   int world_size;
   MPI_Comm_size(MPI_COMM_WORLD, &world_size);
-  long liczba = 0;
-  long wynik = 0;
+  long long liczba = 0;
+  long long wynik = 0;
   int world_rank;
   MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
   char processor_name[MPI_MAX_PROCESSOR_NAME];
@@ -52,22 +52,22 @@ return 0;
 	}*/
 	liczba = atol(argv[1]);
 	MPI_Barrier(MPI_COMM_WORLD);
-	MPI_Bcast(&liczba, 1, MPI_LONG, 0, MPI_COMM_WORLD);
+	MPI_Bcast(&liczba, 1, MPI_LONG_LONG_INT, 0, MPI_COMM_WORLD);
 	
 	if (world_rank != 0)
         {
             short done = 0;
             while (done != 1)
             {
-                long x = 2;
-                long y = 2;
-                long d = 1;
+                long long x = 2;
+                long long y = 2;
+                long long d = 1;
                 while (d == 1 || d == -1)
                 {
                     x = Funkcja(x, world_rank, liczba, r);
                     y = Funkcja(y, world_rank, liczba, r);
                     y = Funkcja(y, world_rank, liczba, r);
-                    long zmienna = x - y;
+                    long long zmienna = x - y;
                     if (zmienna < 0)
                     {
                         zmienna = zmienna*-1;
@@ -85,17 +85,17 @@ return 0;
                 }
                 if (d > 0)
                 {
-		MPI_Send(&d, 1, MPI_LONG, 0, 0, MPI_COMM_WORLD);
+		MPI_Send(&d, 1, MPI_LONG_LONG_INT, 0, 0, MPI_COMM_WORLD);
                     done = 1;
                 }else
 		{
-			r = rand() % 100;
+			r = rand();
 		}
-            }
+        }
         }
         else
         {
-      	    MPI_Recv(&wynik, 1, MPI_LONG, MPI_ANY_SOURCE, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE); 
+      	    MPI_Recv(&wynik, 1, MPI_LONG_LONG_INT, MPI_ANY_SOURCE, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE); 
             printf("Wynik to: %ld\n", wynik);
       	    MPI_Abort(MPI_COMM_WORLD, 2);
       	    MPI_Finalize();

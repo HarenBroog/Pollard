@@ -20,9 +20,17 @@
         - number.time.first.each do |t|
           %th= number.time.first.index(t)+2
     %tbody
+      - sum=Array.new(10){|i| 0}
       - number.time.each do |t|
         %tr
           %td= number.time.index(t)+1
           -t.each do |t1|
             %td= t1
+            - sum[t.index(t1)]+=t1
+      %tr
+        %td Avg
+        - sum.each do |t|
+          %td= t/number.time.count
+
+
       

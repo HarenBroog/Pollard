@@ -21,7 +21,7 @@ class Number
       10.times do |i|
         t=Time.now
         cns=''
-        status = POpen4::popen4( "mpirun -np #{i+2} a.out #{value}" ) do |stdout, stderr, stdin|  
+        status = POpen4::popen4( "mpirun -n #{i+2} a.out #{value}" ) do |stdout, stderr, stdin|  
           stdout.each do |line|  
             cns+= line.to_str
             break  
